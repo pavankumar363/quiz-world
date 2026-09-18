@@ -3,29 +3,693 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Quiz World</title>
+
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <header>
-        <h1>🌍 Quiz World</h1>
-        <p>Test Your Knowledge</p>
+    <!-- =========================
+         HEADER
+    ========================== -->
+    <header class="top-header">
+
+        <div class="logo">
+            <div class="logo-icon">QW</div>
+
+            <div>
+                <h1>Quiz World</h1>
+                <span>Learn • Challenge • Achieve</span>
+            </div>
+        </div>
+
+        <button class="header-login-btn" id="loginHeaderBtn">
+            Login
+        </button>
+
     </header>
 
-    <main>
-        <section class="welcome">
-            <h2>Welcome to Quiz World</h2>
-            <p>Challenge yourself with exciting quizzes.</p>
 
-            <button onclick="startQuiz()">Start Quiz</button>
+    <!-- =========================
+         HOME PAGE
+    ========================== -->
+    <main id="homePage">
+
+        <section class="hero">
+
+            <div class="hero-content">
+
+                <span class="hero-badge">
+                    🌍 Welcome to Quiz World
+                </span>
+
+                <h2>
+                    Test Your Knowledge.<br>
+                    <span>Challenge Yourself.</span>
+                </h2>
+
+                <p>
+                    Explore exciting academic and general knowledge quizzes,
+                    improve your skills and discover your potential.
+                </p>
+
+                <div class="hero-buttons">
+
+                    <button class="primary-btn" id="studentLoginBtn">
+                        🎓 Student Login
+                    </button>
+
+                    <button class="secondary-btn" id="adminLoginBtn">
+                        🔐 Admin Login
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <div class="hero-card">
+
+                <div class="floating-icon icon-one">🧠</div>
+                <div class="floating-icon icon-two">🏆</div>
+                <div class="floating-icon icon-three">📚</div>
+
+                <div class="quiz-preview">
+
+                    <div class="preview-header">
+                        <span>Today's Challenge</span>
+                        <span class="live-dot">● LIVE</span>
+                    </div>
+
+                    <h3>Ready to test yourself?</h3>
+
+                    <div class="preview-stat">
+                        <div>
+                            <strong>25+</strong>
+                            <small>Questions</small>
+                        </div>
+
+                        <div>
+                            <strong>15</strong>
+                            <small>Minutes</small>
+                        </div>
+
+                        <div>
+                            <strong>100%</strong>
+                            <small>Fun</small>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
         </section>
+
+
+        <!-- FEATURES -->
+
+        <section class="features-section">
+
+            <div class="section-title">
+
+                <span>WHY QUIZ WORLD?</span>
+
+                <h2>Everything You Need to Learn & Compete</h2>
+
+            </div>
+
+            <div class="feature-grid">
+
+                <div class="feature-card">
+                    <div class="feature-icon">📝</div>
+                    <h3>Exciting Quizzes</h3>
+                    <p>Academic and general knowledge quizzes.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">⏱️</div>
+                    <h3>Timed Challenges</h3>
+                    <p>Complete quizzes within the given time.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">📊</div>
+                    <h3>Instant Results</h3>
+                    <p>See your performance immediately.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">🏆</div>
+                    <h3>Achievements</h3>
+                    <p>Earn certificates and track your progress.</p>
+                </div>
+
+            </div>
+
+        </section>
+
     </main>
 
-    <footer>
-        <p>© 2026 Quiz World</p>
-    </footer>
+
+    <!-- =========================
+         LOGIN PAGE
+    ========================== -->
+
+    <section class="page hidden" id="loginPage">
+
+        <div class="login-container">
+
+            <button class="back-btn" id="backHomeBtn">
+                ← Back
+            </button>
+
+            <div class="login-card">
+
+                <div class="login-logo">
+                    QW
+                </div>
+
+                <h2 id="loginTitle">Student Login</h2>
+
+                <p id="loginSubtitle">
+                    Login to continue your quiz journey.
+                </p>
+
+                <form id="loginForm">
+
+                    <label>Username</label>
+
+                    <input
+                        type="text"
+                        id="username"
+                        placeholder="Enter username"
+                        required
+                    >
+
+                    <label>Password</label>
+
+                    <input
+                        type="password"
+                        id="password"
+                        placeholder="Enter password"
+                        required
+                    >
+
+                    <button type="submit" class="primary-btn full-btn">
+                        Login
+                    </button>
+
+                </form>
+
+                <p class="demo-note">
+                    Demo: student / 1234
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         STUDENT DASHBOARD
+    ========================== -->
+
+    <section class="dashboard-page hidden" id="studentDashboard">
+
+        <div class="dashboard-header">
+
+            <div>
+                <span class="small-label">STUDENT PORTAL</span>
+                <h2>Welcome, <span id="studentName">Student</span> 👋</h2>
+            </div>
+
+            <button class="logout-btn" id="studentLogoutBtn">
+                Logout
+            </button>
+
+        </div>
+
+
+        <!-- Dashboard Cards -->
+
+        <div class="dashboard-grid">
+
+            <div class="dashboard-card quiz-card" data-section="quizzes">
+                <div class="dash-icon">📝</div>
+                <h3>Available Quizzes</h3>
+                <strong id="quizCount">3</strong>
+                <p>Ready to attempt</p>
+            </div>
+
+            <div class="dashboard-card" data-section="results">
+                <div class="dash-icon">📊</div>
+                <h3>My Results</h3>
+                <strong>2</strong>
+                <p>Completed quizzes</p>
+            </div>
+
+            <div class="dashboard-card" data-section="leaderboard">
+                <div class="dash-icon">🏆</div>
+                <h3>Leaderboard</h3>
+                <strong>#8</strong>
+                <p>Your current rank</p>
+            </div>
+
+            <div class="dashboard-card" data-section="profile">
+                <div class="dash-icon">👤</div>
+                <h3>My Profile</h3>
+                <strong>→</strong>
+                <p>View your details</p>
+            </div>
+
+            <div class="dashboard-card" data-section="certificates">
+                <div class="dash-icon">📜</div>
+                <h3>Certificates</h3>
+                <strong>2</strong>
+                <p>Your achievements</p>
+            </div>
+
+            <div class="dashboard-card" data-section="history">
+                <div class="dash-icon">📚</div>
+                <h3>Quiz History</h3>
+                <strong>5</strong>
+                <p>Past attempts</p>
+            </div>
+
+            <div class="dashboard-card" data-section="notifications">
+                <div class="dash-icon">🔔</div>
+                <h3>Notifications</h3>
+                <strong>3</strong>
+                <p>New notifications</p>
+            </div>
+
+        </div>
+
+
+        <div class="dashboard-section">
+
+            <div class="section-heading">
+
+                <div>
+                    <span class="small-label">START LEARNING</span>
+                    <h2>Available Quizzes</h2>
+                </div>
+
+            </div>
+
+
+            <div class="quiz-list" id="quizList">
+
+                <!-- Quiz cards generated by JavaScript -->
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         QUIZ PAGE
+    ========================== -->
+
+    <section class="quiz-page hidden" id="quizPage">
+
+        <div class="quiz-top">
+
+            <div>
+                <span class="small-label">QUIZ WORLD</span>
+                <h2 id="quizTitle">Quiz</h2>
+            </div>
+
+            <div class="timer-box" id="timerBox">
+                ⏱️ <span id="timer">15:00</span>
+            </div>
+
+        </div>
+
+
+        <div class="quiz-layout">
+
+            <div class="question-card">
+
+                <div class="question-meta">
+
+                    <span id="questionNumber">
+                        Question 1
+                    </span>
+
+                    <span id="questionMarks">
+                        1 Mark
+                    </span>
+
+                </div>
+
+                <h2 id="questionText">
+                    Question will appear here
+                </h2>
+
+
+                <div id="optionsContainer" class="options-container">
+
+                    <!-- Options generated here -->
+
+                </div>
+
+
+                <div class="question-actions">
+
+                    <button
+                        class="secondary-btn"
+                        id="previousBtn"
+                    >
+                        ← Previous
+                    </button>
+
+                    <button
+                        class="primary-btn"
+                        id="nextBtn"
+                    >
+                        Next →
+                    </button>
+
+                    <button
+                        class="submit-btn hidden"
+                        id="submitQuizBtn"
+                    >
+                        Submit Quiz
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- Question navigation -->
+
+            <aside class="question-navigation">
+
+                <h3>Questions</h3>
+
+                <p>
+                    Answered questions are marked.
+                </p>
+
+                <div
+                    class="question-numbers"
+                    id="questionNumbers"
+                ></div>
+
+            </aside>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         RESULT PAGE
+    ========================== -->
+
+    <section class="result-page hidden" id="resultPage">
+
+        <div class="result-card">
+
+            <div class="result-icon">
+                🏆
+            </div>
+
+            <span class="small-label">QUIZ COMPLETED</span>
+
+            <h2>Congratulations!</h2>
+
+            <p id="resultMessage">
+                You have successfully completed the quiz.
+            </p>
+
+
+            <div class="score-circle">
+
+                <strong id="scorePercentage">
+                    0%
+                </strong>
+
+                <span>Score</span>
+
+            </div>
+
+
+            <div class="result-grid">
+
+                <div>
+                    <span>Total Questions</span>
+                    <strong id="resultTotal">0</strong>
+                </div>
+
+                <div>
+                    <span>Correct Answers</span>
+                    <strong id="resultCorrect">0</strong>
+                </div>
+
+                <div>
+                    <span>Wrong Answers</span>
+                    <strong id="resultWrong">0</strong>
+                </div>
+
+                <div>
+                    <span>Marks Obtained</span>
+                    <strong id="resultMarks">0</strong>
+                </div>
+
+                <div>
+                    <span>Total Marks</span>
+                    <strong id="resultTotalMarks">0</strong>
+                </div>
+
+                <div>
+                    <span>Time Taken</span>
+                    <strong id="resultTime">0 min</strong>
+                </div>
+
+                <div>
+                    <span>Your Rank</span>
+                    <strong id="resultRank">#8</strong>
+                </div>
+
+                <div>
+                    <span>Status</span>
+                    <strong id="resultStatus">PASS</strong>
+                </div>
+
+            </div>
+
+
+            <div class="result-buttons">
+
+                <button
+                    class="primary-btn"
+                    id="certificateBtn"
+                >
+                    📜 View Certificate
+                </button>
+
+                <button
+                    class="secondary-btn"
+                    id="dashboardBtn"
+                >
+                    ← Dashboard
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         CERTIFICATE
+    ========================== -->
+
+    <section class="certificate-page hidden" id="certificatePage">
+
+        <div class="certificate">
+
+            <div class="certificate-border">
+
+                <div class="certificate-logo">
+                    QW
+                </div>
+
+                <span>CERTIFICATE OF ACHIEVEMENT</span>
+
+                <h1>Quiz World</h1>
+
+                <p>This certificate is proudly presented to</p>
+
+                <h2 id="certificateStudent">
+                    Student Name
+                </h2>
+
+                <p>
+                    for successfully completing
+                </p>
+
+                <h3 id="certificateQuiz">
+                    Quiz Name
+                </h3>
+
+                <div class="certificate-details">
+
+                    <div>
+                        <span>Score</span>
+                        <strong id="certificateScore">0%</strong>
+                    </div>
+
+                    <div>
+                        <span>Date</span>
+                        <strong id="certificateDate">--</strong>
+                    </div>
+
+                    <div>
+                        <span>Certificate ID</span>
+                        <strong id="certificateId">QW-000001</strong>
+                    </div>
+
+                </div>
+
+                <div class="signature">
+                    <strong>Quiz World Admin</strong>
+                    <span>Authorized Signature</span>
+                </div>
+
+            </div>
+
+        </div>
+
+        <button
+            class="secondary-btn certificate-back"
+            id="certificateBackBtn"
+        >
+            ← Back to Result
+        </button>
+
+    </section>
+
+
+    <!-- =========================
+         ADMIN DASHBOARD
+    ========================== -->
+
+    <section class="dashboard-page hidden" id="adminDashboard">
+
+        <div class="dashboard-header">
+
+            <div>
+                <span class="small-label">ADMIN PORTAL</span>
+                <h2>Admin Dashboard ⚙️</h2>
+            </div>
+
+            <button class="logout-btn" id="adminLogoutBtn">
+                Logout
+            </button>
+
+        </div>
+
+
+        <div class="admin-stat-grid">
+
+            <div class="admin-stat">
+                <span>👥</span>
+                <strong>250</strong>
+                <small>Total Students</small>
+            </div>
+
+            <div class="admin-stat">
+                <span>📝</span>
+                <strong>18</strong>
+                <small>Total Quizzes</small>
+            </div>
+
+            <div class="admin-stat">
+                <span>📊</span>
+                <strong>1,248</strong>
+                <small>Total Attempts</small>
+            </div>
+
+            <div class="admin-stat">
+                <span>🏆</span>
+                <strong>92%</strong>
+                <small>Average Performance</small>
+            </div>
+
+        </div>
+
+
+        <div class="admin-actions">
+
+            <button class="admin-action">
+                ➕ Create Quiz
+            </button>
+
+            <button class="admin-action">
+                ✏️ Edit Quiz
+            </button>
+
+            <button class="admin-action">
+                🗑️ Delete Quiz
+            </button>
+
+            <button class="admin-action">
+                👥 Manage Students
+            </button>
+
+            <button class="admin-action">
+                📊 View Results
+            </button>
+
+            <button class="admin-action">
+                🔔 Notifications
+            </button>
+
+            <button class="admin-action">
+                📜 Certificates
+            </button>
+
+            <button class="admin-action">
+                🏆 Rankings
+            </button>
+
+        </div>
+
+
+        <div class="admin-info">
+
+            <h2>Quiz Management</h2>
+
+            <p>
+                Admin can create quizzes, select categories,
+                set questions, marks, time limits, dates and
+                active/inactive status.
+            </p>
+
+            <button class="primary-btn" id="adminCreateQuizBtn">
+                Create New Quiz
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         JAVASCRIPT
+    ========================== -->
 
     <script src="script.js"></script>
 
